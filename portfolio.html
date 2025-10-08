@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shreyas Rane</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --accent: #38bdf8;
+      --dark: #181818;
+      --bg: #f4f4f9;
+      --text: #222;
+      --header: #333;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      background: var(--header);
+      color: #fff;
+      padding: 2rem 0 1.5rem 0;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+    }
+    header img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      margin-bottom: 1rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      background: #eee;
+    }
+    h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2.2rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .subtitle {
+      font-size: 1.15rem;
+      color: #eee;
+    }
+    .social-bar {
+      background: var(--dark);
+      padding: 1rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .social-bar ul {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .social-bar a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #fff;
+      text-decoration: none;
+      opacity: 0.85;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .social-bar a:hover {
+      opacity: 1;
+      color: var(--accent);
+    }
+    .social-bar svg {
+      width: 34px;
+      height: 34px;
+      margin-bottom: 2px;
+      fill: #fff !important;
+    }
+    nav.main {
+      background: #444;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav.main ul {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 0.6rem 0;
+      list-style: none;
+    }
+    nav.main a {
+      color: #fff;
+      padding: 0.4rem 1rem;
+      font-weight: 500;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.25s;
+    }
+    nav.main a:hover, nav.main a.active {
+      background: #575757;
+    }
+    main.container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem 0 2rem;
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--header);
+    }
+    section p {
+      margin-bottom: 0.7rem;
+    }
+    hr {
+      margin: 1.2rem 0;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
+    .quote {
+      font-style: italic;
+      color: #444;
+      background: #eaeaea;
+      padding: 1rem;
+      border-radius: 6px;
+      margin: 1.2rem 0;
+      text-align: center;
+    }
+    .projects-grid {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      width: 300px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0 0 0;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+    }
+    .skills-table th, .skills-table td {
+      border: 1px solid #ddd;
+      padding: 0.8rem;
+      text-align: left;
+    }
+    .skills-table th {
+      background: var(--header);
+      color: #fff;
+      font-weight: 600;
+    }
+    .skills-table caption {
+      font-weight: bold;
+      margin: 1rem 0;
+      font-size: 1.15rem;
+      color: var(--header);
+      text-align: left;
+    }
+    .contact-links a {
+      color: var(--header);
+      text-decoration: underline;
+      margin-right: 16px;
+      font-weight: 500;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      background: var(--header);
+      color: #fff;
+      margin-top: 1.5rem;
+    }
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      main.container {
+        padding: 1.2rem;
+      }
+      .projects-grid {
+        gap: 1.5rem;
+      }
+    }
+    @media (max-width: 700px) {
+      header img {
+        width: 100px;
+        height: 100px;
+      }
+      .social-bar ul, nav.main ul { 
+        gap: 1.2rem;
+      }
+      .projects-grid {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+      }
+      .card {
+        width: 95vw;
+      }
+      .skills-table th,
+      .skills-table td {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+      }
+    }
+    @media (max-width: 500px) {
+      main.container {
+        padding: 0.5rem;
+      }
+      header {
+        padding: 1.2rem 0 1rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="pfp.jpg" alt="Profile Picture">
+    <h1><u>Shreyas Rane</u></h1>
+    <div class="subtitle">
+      Music Producer, Computer Science Major @ VNIT,<br>
+      CyberSec & Linux Enthusiast, Potions Master
+    </div>
+  </header>
+  <nav class="social-bar">
+    <ul>
+      <li>
+        <a href="https://instagram.com/c0nfr1ng0/" target="_blank" title="Instagram">
+          <!-- Instagram SVG -->
+          <svg viewBox="0 0 24 24"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm4.5 3.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-1.25a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0z"/></svg>
+        </a>
+      </li>
+      <li>
+        <a href="mailto:shreyasrane6@gmail.com" title="Email">
+          <!-- Email SVG -->
+          <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2v.01L12 13 4 6.01V6h16zm-16 12V8.99l7.53 6.28a1 1 0 0 0 1.28 0L20 8.99V18H4z"/></svg>
+        </a>
+      </li>
+            <!-- SoundCloud -->
+<li>
+  <a href="https://soundcloud.com/c0nfr1ng0/" target="_blank" title="SoundCloud">
+    <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.761 10.497c-.821 0-1.433.131-2.073.419-.19-2.74-2.465-4.912-5.234-4.934-.274-.002-.553.018-.823.06a.52.52 0 00-.474.57v7.193a.403.403 0 01-.803.001l-.002-6.713a.374.374 0 00-.372-.375h-.004a.374.374 0 00-.374.37l-.002 7.92a.383.383 0 01-.763 0v-7.092a.378.378 0 00-.378-.374h-.003a.378.378 0 00-.378.374v7.092a.386.386 0 01-.77 0v-6.02a.383.383 0 00-.384-.378h-.003a.383.383 0 00-.383.378v6.017a.388.388 0 01-.774 0v-4.768a.401.401 0 00-.401-.399h-.003a.401.401 0 00-.401.398v6.016c0 .32.26.581.581.581h10.364c.329 0 .596-.267.596-.595 0-.371-.045-.934-.117-1.251-.046-.209-.104-.326-.244-.453-.101-.093-.204-.104-.339-.179-.108-.06-.158-.108-.225-.226-.077-.145-.087-.318-.087-.484zm-4.131-1.531c.174 0 .314.141.314.315v5.094a.314.314 0 01-.628 0v-5.094c0-.174.141-.315.314-.315zm9.505 2.159c-.313-1.883-1.84-2.328-2.762-2.313-.27.004-.536.04-.799.11a.524.524 0 00-.384.412c-.035.165-.053.334-.053.506v4.883c0 .305.247.552.552.552H22.22c.305 0 .553-.246.553-.551v-2.039c0-.295-.096-.502-.263-.66a.934.934 0 00-.299-.22zm-2.238 4.333h-10.364a.581.581 0 01-.581-.581V16.5h11.717a.596.596 0 00.596-.595c0-.386-.159-.934-.246-1.251-.058-.209-.132-.326-.312-.453-.165-.093-.326-.104-.482-.179-.147-.06-.205-.108-.292-.226-.106-.145-.119-.318-.119-.484V16.5a.581.581 0 01-.581.581z"/>
+    </svg>
+  </a>
+</li>
+
+<!-- LinkedIn -->
+<li>
+  <a href="https://www.linkedin.com/in/shreyas-rane-6069b0251/" target="_blank" title="LinkedIn">
+    <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11.5 19h-3v-9h3v9zm-1.5-10.3c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75c.97 0 1.75.78 1.75 1.75s-.78 1.75-1.75 1.75zm13 10.3h-3v-4.5c0-1.08-.92-1.97-2-1.97s-2 .89-2 1.97v4.5h-3v-9h3v1.23c.41-.69 1.32-1.23 2.23-1.23 1.93 0 3.27 1.22 3.27 3.59v5.41z"/>
+    </svg>
+  </a>
+</li>
+
+<!-- TryHackMe -->
+<li>
+  <a href="https://tryhackme.com/p/C0NFR1NG0/" target="_blank" title="TryHackMe">
+    <svg viewBox="0 0 256 256" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="132" cy="85" r="50"/>
+      <ellipse cx="132" cy="170" rx="90" ry="56"/>
+      <rect x="107" y="126" width="50" height="17"/>
+      <circle cx="195" cy="55" r="13"/>
+    </svg>
+  </a>
+</li>
+    <li>
+  <a href="https://github.com/C0NFR1NGO" target="_blank" title="GitHub">
+    <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 .297c-6.6 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.011-1.04-.017-2.043-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.333-1.754-1.333-1.754-1.089-.745.083-.729.083-.729 1.205.085 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.491.997.108-.775.418-1.304.762-1.605-2.665-.305-5.466-1.334-5.466-5.931 0-1.31.469-2.381 1.236-3.221-.123-.304-.536-1.528.117-3.176 0 0 1.008-.322 3.305 1.23a11.486 11.486 0 013.012-.404c1.021.005 2.05.138 3.012.404 2.297-1.552 3.303-1.23 3.303-1.23.654 1.648.241 2.872.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.804 5.624-5.475 5.921.43.37.823 1.102.823 2.222 0 1.604-.014 2.896-.014 3.292 0 .321.217.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    </svg>
+  </a>
+</li>
+
+
+      <li>
+        <a href="https://x.com/C0NFR1NG0/" target="_blank" title="X">
+          <!-- X SVG -->
+          <svg viewBox="0 0 24 24"><path d="M18.366 3H21.11l-6.9 7.865L22 21H15.82l-5.473-6.207L4.301 21H1.55l7.392-8.414L2 3h6.336l5.076 5.739zm-2.205 15.29h1.986L7.758 5.338H5.79l10.371 12.951z"/></svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <nav class="main">
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="container">
+    <section id="about">
+      <h2><u>About Me</u></h2>
+      <p>
+        I'm Shreyas Rane, a CSE major exploring the intersection of technology and art as a music producer and graphic editor. Check out my work below!
+      </p>
+      <div class="quote">
+        Be not afraid of greatness.<br>
+        Some are born great,<br>
+        some achieve greatness,<br>
+        and others have greatness thrust upon them.<br>
+        — <b>William Shakespeare</b>
+      </div>
+    </section>
+    <section id="skills">
+      <h2><u>Technical Skills</u></h2>
+      <p>Technologies I've worked with:</p>
+      <h3>Programming Languages</h3>
+      <ul>
+        <li>C</li>
+        <li>C++</li>
+      </ul>
+      <h3>Web Technologies</h3>
+      <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+      </ul>
+      <h3>My Development Process</h3>
+      <ol>
+        <li>Requirement Analysis</li>
+        <li>Design and Prototyping</li>
+        <li>Development and Implementation</li>
+        <li>Testing and Deployment</li>
+      </ol>
+      <table class="skills-table">
+        <caption>Skill Proficiency</caption>
+        <tr>
+          <th>Technology</th><th>Proficiency</th><th>Exp. (Years)</th>
+        </tr>
+        <tr><td>HTML</td><td>Intermediate</td><td>4</td></tr>
+        <tr><td>CSS</td><td>Intermediate</td><td>2</td></tr>
+        <tr><td>C</td><td>Intermediate</td><td>2</td></tr>
+        <tr><td>Linux Administration</td><td>Novice</td><td>3</td></tr>
+        <tr><th colspan="2">Future Learning Goal</th><td>Red Teaming</td></tr>
+      </table>
+    </section>
+    <section id="projects">
+      <h2><u>Projects & Experience</u></h2>
+      <div class="projects-grid">
+        <div class="card">
+          <h3>Dexter 2025</h3>
+          <p>Organized pan-India aptitude event.<br>Role: Representative, Organiser</p>
+        </div>
+        <div class="card">
+          <h3>CSE Department Second Year Council</h3>
+          <p>Spearheaded creative decisions and work.<br>Role: Creative Secretary</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">&copy; 2025 Shreyas Rane. All Rights Reserved.</div>
+  </footer>
+</body>
+</html>
