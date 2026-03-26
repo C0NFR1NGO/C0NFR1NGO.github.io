@@ -1,4 +1,4 @@
-\# Hi there, I'm Shreyas Rane! 👋 
+# Hi there, I'm Shreyas Rane! 👋 
 
 \### aka C0NFR1NG0
 
